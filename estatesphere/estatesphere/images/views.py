@@ -1,3 +1,18 @@
 from django.shortcuts import render
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 
-# Create your views here.
+
+class ImageAddView(CreateView):
+    pass
+
+
+class ImageEditView(UpdateView):
+    pass
+
+
+class ImageDetailsView(DetailView):
+    pass
+
+
+def image_delete(request, pk):
+    pass
