@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background: #EEEAE6;
 }
 
 header {
@@ -107,15 +108,15 @@ footer {
 /* Hover effect on page links */
 .pagination .page-item .page-link:hover {
     color: #fff;
-    background-color: #195E8E;  /* Blue background on hover */
-    border-color: #195E8E;
+    background-color: #FFC342;  /* Blue background on hover */
+    border-color: #FFC342;
 }
 
 /* Active (current) page styling */
 .pagination .page-item.active .page-link {
     color: #fff;
-    background-color: #195E8E;  /* Blue background for active page */
-    border-color: #195E8E;
+    background-color: #FFC342;  /* Blue background for active page */
+    border-color: #FFC342;
     font-weight: bold;  /* Bold text for current page */
 }
 
@@ -138,7 +139,7 @@ footer {
 /* Adding a hover effect to the step-links (Previous/Next buttons) */
 .pagination .page-item .page-link[aria-label="Previous"]:hover,
 .pagination .page-item .page-link[aria-label="Next"]:hover {
-    background-color: #195E8E; /* Darker blue for step-links */
+    background-color: #FFC342; /* Darker blue for step-links */
     color: #fff;
 }
 
