@@ -11,9 +11,6 @@ class Favourite(models.Model):
     user = models.ForeignKey(to=UserModel, on_delete=models.CASCADE)
     estate_property = models.ForeignKey(to=RealEstateProperty, on_delete=models.CASCADE, related_name='favourites')
 
-    class Meta:
-        unique_together = ('user', 'estate_property')
-
 
 class Review(models.Model):
     user = models.ForeignKey(to=UserModel, on_delete=models.CASCADE)
@@ -23,7 +20,6 @@ class Review(models.Model):
     date_time_of_publication = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'estate_property')
         indexes = [
             models.Index(fields=['date_time_of_publication']),
         ]
