@@ -1,0 +1,71 @@
+{% extends 'common/base.html' %}
+{% load url_append %}
+
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Available Properties</h2>
+
+    <!-- Search Bar -->
+    <form method="get" class="search-bar">
+        {{ search_form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Property Listing -->
+    <div class="row">
+        {% for property in all_properties %}
+            {% include 'common/properties-display.html' %}
+        {% empty %}
+            <p class="text-muted text-center">No properties match!</p>
+        {% endfor %}
+    </div>
+
+    <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <!-- Previous Button -->
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?{% url_query_append_tag request 'page' page_obj.previous_page_number %}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </span>
+            </li>
+        {% endif %}
+
+    
+        {% for page_num in page_obj.paginator.page_range %}
+            {% if page_num == page_obj.number %}
+                <li class="page-item active">
+                    <span class="page-link">{{ page_num }}</span>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?{% url_query_append_tag request 'page' page_num %}">{{ page_num }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Next Button -->
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?{% url_query_append_tag request 'page' page_obj.next_page_number %}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </span>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+</div>
+{% endblock %}
