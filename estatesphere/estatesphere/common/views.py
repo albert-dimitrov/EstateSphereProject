@@ -29,10 +29,6 @@ class HomePageView(ListView):
         return queryset
 
 
-def index(request):
-    return render(request, 'common/base.html')
-
-
 def favourite_functionality(request, property_id):
     pass
 
