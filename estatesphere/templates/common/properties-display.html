@@ -1,13 +1,30 @@
 {% load static %}
 
-<div class="row-md-4 mb-4">
-    <div class="card">
-        <!-- Fixed size image -->
-        <img src="{{ property.image }}" class="card-img-top fixed-size-img" alt="{{ property.title }}">
+{#<div class="row-md-4 mb-4">#}
+{#    <div class="card">#}
+{#        <!-- Fixed size image -->#}
+{#        <img src="{{ property.image }}" class="card-img-left" alt="{{ property.title }}">#}
+{#        <div class="card-body">#}
+{#            <h5 class="card-title">{{ property.title }}</h5>#}
+{#            <p class="card-text">{{ property.description|truncatechars:100 }}</p>#}
+{#            <p class="text-muted"><strong>Price:</strong> ${{ property.price }}</p>#}
+{#            <a href="{% url 'property-details' property.id %}" class="btn btn-primary">View Details</a>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+<div class="col-md-12 mb-4">
+    <div class="card horizontal-card d-flex flex-row">
+        <!-- Fixed size image on the left -->
+        <img src="{{ property.image }}" class="card-img-left" alt="{{ property.title }}">
+
+        <!-- Card body content on the right -->
         <div class="card-body">
             <h5 class="card-title">{{ property.title }}</h5>
-            <p class="card-text">{{ property.description|truncatechars:100 }}</p>
-            <p class="text-muted"><strong>Price:</strong> ${{ property.price }}</p>
+            {% if property.description %}
+                <p class="card-text">{{ property.description|truncatechars:100 }}</p>
+            {% endif %}
+            <p class="text-muted"><strong>Price:</strong> {{ property.price }} EUR</p>
             <a href="{% url 'property-details' property.id %}" class="btn btn-primary">View Details</a>
         </div>
     </div>

@@ -4,11 +4,13 @@ body {
 
 header {
     border-bottom: 2px solid #ddd;
+    background: #195E8E;
 }
 
 footer {
     border-top: 2px solid #ddd;
 }
+
 /* Centering the title */
 .container h2 {
     text-align: center;
@@ -17,58 +19,70 @@ footer {
 
 /* Search bar container */
 .search-bar {
-    display: flex;
-    justify-content: center;
-    margin: 20px ;
-    max-width: 1000px; /* Increased width */
-    margin: 0 auto; /* Center it horizontally */
+    display: flex; /* Align input and button horizontally */
+    justify-content: center; /* Center the elements inside */
+    align-items: stretch; /* Ensure both input and button match height */
+    margin: 20px auto; /* Add vertical margin and center it horizontally */
+    max-width: 800px; /* Wider max width */
+    width: 100%; /* Stretch to the full width of the parent container */
+    height: auto; /* Allow height to adjust with content */
+}
+.search-bar div {
+    width: 100%; /* Allow full width */
+    height: auto; /* Remove fixed height if set */
+    padding: 0; /* Reset any extra padding */
+    margin: 0; /* Reset margins */
+    display: flex; /* Align children properly */
+    align-items: center; /* Vertically align children */
+    justify-content: space-between; /* Distribute space inside */
+    box-sizing: border-box; /* Include padding and border in dimensions */
+}
+/* Input field styling */
+.search-bar input[type="text"] {
+    border: 2px solid #195E8E;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    padding: 15px; /* Adjust padding to set height */
+    font-size: 16px;
+    outline: none;
+    width: 100%; /* Allow input to take full available space */
+    height: auto; /* Allow height to adjust based on padding */
+    box-sizing: border-box; /* Include padding in width/height */
+    flex: 1; /* Make input stretch to fill space */
 }
 
-/* Remove label styling */
+/* Hide labels in the form */
 .search-bar label {
     display: none;
 }
 
-/* Search bar input styling */
-.search-bar input[type="text"] {
-    border: 2px solid #007bff;
-    border-right: none;
-    border-radius: 5px 0 0 5px;
-    padding: 15px; /* Increased padding for height */
-    font-size: 16px;
-    outline: none;
-    width: 100%; /* Make input field much wider */
-    transition: 0.3s ease;
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
-}
-
-/* Focus effect on input */
+/* Focus styling for input */
 .search-bar input[type="text"]:focus {
-    border-color: #0056b3;
+    border-color: #195E8E;
     box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
 }
 
-/* Search button styling */
+/* Button styling */
 .search-bar button {
-    border: 2px solid #007bff;
+    border: 2px solid #195E8E;
     border-left: none;
-    background-color: #007bff;
+    background-color: #195E8E;
     color: white;
-    padding: 15px 20px; /* Match button height to input field */
+    padding: 15px 20px; /* Match padding to input */
     font-size: 16px;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     transition: 0.3s ease;
     flex-shrink: 0; /* Prevent shrinking of button */
-    height: 100%; /* Make button height match the input field */
-    box-sizing: border-box; /* Ensure padding is included in height calculation */
+    height: auto; /* Ensures button height matches the input */
+    box-sizing: border-box; /* Includes padding in height calculation */
     margin-left: -2px; /* Remove gap between input and button */
 }
 
 /* Button hover effect */
 .search-bar button:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #004a9b;
+    border-color: #004a9b;
 }
 
 /* General styles for pagination */
@@ -80,7 +94,7 @@ footer {
 
 /* Pagination link styling */
 .pagination .page-item .page-link {
-    color: #007bff;  /* Blue color for normal links */
+    color: #195E8E;  /* Blue color for normal links */
     background-color: #fff;  /* White background */
     border: 1px solid #ddd;  /* Light border */
     padding: 8px 16px;
@@ -93,15 +107,15 @@ footer {
 /* Hover effect on page links */
 .pagination .page-item .page-link:hover {
     color: #fff;
-    background-color: #007bff;  /* Blue background on hover */
-    border-color: #007bff;
+    background-color: #195E8E;  /* Blue background on hover */
+    border-color: #195E8E;
 }
 
 /* Active (current) page styling */
 .pagination .page-item.active .page-link {
     color: #fff;
-    background-color: #007bff;  /* Blue background for active page */
-    border-color: #007bff;
+    background-color: #195E8E;  /* Blue background for active page */
+    border-color: #195E8E;
     font-weight: bold;  /* Bold text for current page */
 }
 
@@ -124,27 +138,65 @@ footer {
 /* Adding a hover effect to the step-links (Previous/Next buttons) */
 .pagination .page-item .page-link[aria-label="Previous"]:hover,
 .pagination .page-item .page-link[aria-label="Next"]:hover {
-    background-color: #0056b3; /* Darker blue for step-links */
+    background-color: #195E8E; /* Darker blue for step-links */
     color: #fff;
 }
 
-.fixed-size-img {
-    width: 100%;         /* Ensures the image takes up 100% of its container's width */
-    height: 200px;       /* Fixed height for the images */
-    object-fit: cover;   /* Maintains the aspect ratio while filling the area */
+.horizontal-card {
+    display: flex;
+    flex-direction: row; /* Ensures the card is horizontal */
+    align-items: stretch; /* Ensures the content fills the height */
+    border: 1px solid #ddd; /* Optional: adds a light border */
+    border-radius: 8px; /* Optional: makes corners rounded */
+    overflow: hidden; /* Ensures no content overflows */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    height: 300px
 }
 
-/* Optional: Card body text styling */
-.card-body {
-    padding: 15px;
+/* Fixed size for the left-side image */
+.card-img-left {
+    width: 400px; /* Fixed width for the image */
+    height: auto; /* Keeps the aspect ratio */
+    object-fit: cover; /* Ensures the image scales nicely */
 }
+
+/* Card body styling */
+.card-body {
+    flex: 1; /* Ensures the card body takes up remaining space */
+    padding: 15px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Vertically align text in the card */
+}
+
+
 
 .card-title {
     font-size: 1.2rem;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .card-text {
     font-size: 0.9rem;
     color: #555;
+    margin-bottom: 15px;
+}
+
+.card-body .btn {
+    align-self: flex-start; /* Align the button to the left */
+    margin-top: auto; /* Push the button to the bottom of the card body if needed */
+    background: #195E8E;
+}
+
+/* Optional: Responsive Adjustments */
+@media (max-width: 768px) {
+    .horizontal-card {
+        flex-direction: column; /* Stack image and content vertically on smaller screens */
+    }
+
+    .card-img-left {
+        width: 100%; /* Full width for smaller screens */
+        height: 200px; /* Fixed height for consistency */
+    }
 }
