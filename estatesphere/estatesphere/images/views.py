@@ -1,16 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import CreateView, ListView
 
 
 class ImageAddView(CreateView):
     pass
 
 
-class ImageEditView(UpdateView):
-    pass
-
-
-class ImageDetailsView(DetailView):
+class ImageDetailsView(ListView):
     pass
 
 

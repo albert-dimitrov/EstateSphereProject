@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 
 class HomePageView(ListView):
@@ -10,7 +10,15 @@ def favourite_functionality(request, property_id):
     pass
 
 
-def review_functionality(request, property_id):
+class AddReviewView(CreateView):
+    pass
+
+
+class EditReviewView(UpdateView):
+    pass
+
+
+class DeleteReviewView(DeleteView):
     pass
 
 
