@@ -1,0 +1,202 @@
+/* Profile Edit Form Wrapper */
+.profile-edit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Profile Edit Card */
+.profile-edit-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.profile-edit-card h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Profile Edit Form */
+.profile-edit-wrapper form {
+    width: 100%;
+}
+
+.profile-edit-wrapper form input[type="text"],
+.profile-edit-wrapper form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.profile-edit-wrapper form input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.profile-edit-wrapper form input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #195E8E;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.profile-edit-wrapper form input[type="date"]:focus {
+    border-color: #195e8e;
+    box-shadow: 0 0 8px rgba(25, 94, 142, 0.3);
+}
+
+.profile-edit-wrapper form input[type="text"]:focus,
+.profile-edit-wrapper form textarea:focus {
+    border-color: #195e8e;
+    box-shadow: 0 0 8px rgba(25, 94, 142, 0.3);
+}
+
+/* Profile Edit Form Buttons */
+.profile-edit-wrapper .form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-edit-wrapper .form-buttons .btn {
+    background: #195E8E;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    width: 48%;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.profile-edit-wrapper .form-buttons .btn:hover {
+    background: #157bbd;
+}
+
+/* Cancel Button Styling */
+.profile-edit-wrapper .form-buttons .cancel-btn {
+    background: #e74c3c;
+    text-align: center;
+}
+
+.profile-edit-wrapper .form-buttons .cancel-btn:hover {
+    background: #c0392b;
+}
+
+/* Label Styling */
+.profile-edit-wrapper form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left;
+}
+
+.delete-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.delete-card {
+    text-align: center;
+    background: #fff;
+    padding: 60px 40px; /* Increased padding for both height and width */
+    border-radius: 20px; /* Prominent rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    width: 100%;
+    max-width: 800px; /* Increased width */
+    height: 900px; /* Default for responsiveness */ /* Enforced height for taller card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content vertically */
+}
+
+/* GIF Styling - Center and Scale Responsively */
+.delete-gif {
+    max-width: 80%; /* Adjust to take more space */
+    height: auto;
+    max-height: 80%;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-left: 75px;/* Space below GIF */
+}
+
+/* Header and Paragraph Styling */
+.delete-card h1 {
+    font-size: 36px; /* Bigger heading */
+    color: #333;
+    margin-bottom: 20px; /* More spacing */
+}
+
+.delete-card p {
+    font-size: 20px; /* Larger paragraph text */
+    color: #666;
+    margin-bottom: 30px; /* Space between text and buttons */
+}
+.delete-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 30px; /* Increase space between buttons */
+}
+
+/* Confirm Button */
+.confirm-btn {
+    background: #d9534f;
+    color: #fff;
+    padding: 15px 30px; /* Bigger button */
+    font-size: 20px; /* Larger font size */
+    border: none;
+    border-radius: 10px; /* More rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 200px; /* Increased max width */
+}
+
+.confirm-btn:hover {
+    background: #c9302c;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background: #6c757d;
+    color: white;
+    padding: 15px 30px; /* Bigger button */
+    font-size: 20px; /* Larger font size */
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 200px; /* Increased max width */
+}
+
+.cancel-btn:hover {
+    background: #5a6268;
+}

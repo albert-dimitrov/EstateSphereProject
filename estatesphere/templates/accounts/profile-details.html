@@ -1,0 +1,45 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-container">
+        <div class="profile-card">
+
+            <div class="profile-picture">
+                {% if object.profile.pofile_picture %}
+                    <img src="{{ object.profile.pofile_picture }}" alt="Profile Picture">
+                {% else %}
+                    <img src="{% static 'images/profile-default-pic.png' %}" alt="Default Profile Picture">
+                {% endif %}
+            </div>
+        
+            <div class="profile-info">
+                <p><strong>Name:</strong> {{ object.profile.get_full_name }}</p>
+                <p><strong>Email:</strong> {{ object.email }}</p>
+                <p><strong>Phone Number:</strong> {{ object.profile.phone_number }}</p>
+                <p><strong>Date of Birth:</strong> {{ object.profile.date_of_birth }}</p>
+            </div>
+        
+            <div class="additional-info">
+                <h3>Properties Information</h3>
+                <p><strong>Properties Count:</strong> {{ properties_count }}</p>
+                {% if avg_rating %}
+                    <p><strong>Average Rating:</strong> {{ avg_rating }}</p>
+                {% else %}
+                    <p><strong>Average Rating:</strong> No reviews yet.</p>
+                {% endif %}
+            </div>
+            
+            {% if request.user.pk == object.pk %}
+                <div class="edit-profile">
+                    <a href="{% url 'profile-edit' object.pk %}" class="btn">Edit Profile</a>
+                </div>
+                <div class="delete-btn" title="Delete Profile">
+                    <a href="{% url 'profile-delete' object.pk %}">
+                        <img src="{% static 'images/bin-image.png' %}" alt="Delete">
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
