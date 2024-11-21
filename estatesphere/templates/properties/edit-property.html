@@ -1,0 +1,17 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="add-property-wrapper">
+        <div class="add-property-card">
+            <h2>Edit Property</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-buttons">
+                    <button type="submit" class="btn">Save Changes</button>
+                    <a href="{% url 'home' %}" class="btn cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

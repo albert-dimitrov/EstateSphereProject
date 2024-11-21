@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="add-property-wrapper">
+        <div class="add-property-card">
+            <h2>Add New Property</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-submit">Add Property</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

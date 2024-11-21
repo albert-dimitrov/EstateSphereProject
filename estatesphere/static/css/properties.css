@@ -1,0 +1,112 @@
+.add-property-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: transparent;
+    margin: 0;
+}
+
+/* Card styling */
+.add-property-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+}
+
+.add-property-card h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for form controls */
+.add-property-card .p {
+    margin-bottom: 15px;
+}
+
+.add-property-card .helptext {
+    display: none;
+}
+
+.add-property-card label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.add-property-card input,
+.add-property-card textarea,
+.add-property-card select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.add-property-card input:focus,
+.add-property-card textarea:focus,
+.add-property-card select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Submit button styling */
+.add-property-card .btn-submit {
+    background-color: #195E8E;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.add-property-card .btn-submit:hover {
+    background-color: #003d66;
+}
+
+.add-property-wrapper .form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-property-wrapper .form-buttons .btn {
+    background: #195E8E;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    width: 48%;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.add-property-wrapper .form-buttons .btn:hover {
+    background: #157bbd;
+}
+
+/* Cancel Button Styling */
+.add-property-wrapper .form-buttons .cancel-btn {
+    background: #e74c3c;
+    text-align: center;
+}
+
+.add-property-wrapper .form-buttons .cancel-btn:hover {
+    background: #c0392b;
+}
