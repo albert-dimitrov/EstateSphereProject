@@ -2,11 +2,12 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth import login, logout
 from estatesphere.accounts.models import Profile, CustomUser
 
 from estatesphere.accounts.forms import AppUserCreationForm, ProfileEditForm
+from estatesphere.properties.models import RealEstateProperty
 
 UserModel = get_user_model()
 
@@ -51,7 +52,16 @@ class ProfileDetailsView(DetailView):
         total_estates = 0
         for real_estate in self.object.estate_properties.all():
             total_estates += 1
-            total_rating += sum([r.rating for r in real_estate.reviews.all()])
+            current_reviews = 0
+            current_rating = 0
+            for r in real_estate.reviews.all():
+                current_rating += r.rating
+                current_reviews += 1
+
+            if current_reviews:
+                total_rating += current_rating // current_reviews
+            else:
+                total_estates -= 1
 
         avg_rating = total_rating // total_estates if total_rating else None
 
@@ -76,5 +86,19 @@ class ProfileDeleteView(DeleteView):
         response = super().form_valid(form)
 
         return response
+
+
+class ProfilePropertiesView(ListView):
+    model = RealEstateProperty
+    template_name = 'accounts/profile-my-properties.html'
+    context_object_name = 'all_properties'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        queryset = queryset.filter(user__pk=self.request.user.pk)
+
+        return queryset
+
 
 

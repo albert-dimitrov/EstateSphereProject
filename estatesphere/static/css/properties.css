@@ -110,3 +110,160 @@
 .add-property-wrapper .form-buttons .cancel-btn:hover {
     background: #c0392b;
 }
+
+
+.property-details-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    background-color: transparent;
+    min-height: 100vh;
+}
+
+/* Property Card */
+.property-details-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.property-details-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.property-details-card h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.property-details-card .details {
+    margin-bottom: 20px;
+}
+
+.property-details-card .details span {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.property-details-card .details span strong {
+    font-weight: bold;
+}
+
+/* Reviews Section */
+.reviews-section {
+    margin-top: 40px;
+}
+
+.reviews-section h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.review-card {
+    background: #eeeae6;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.review-card .rating {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.review-card .date {
+    font-size: 12px;
+    color: #888;
+}
+
+.no-reviews {
+    font-size: 16px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.review-card a {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits the color from the parent */
+}
+
+.review-card a:hover {
+    color: #FFC342; /* Optional: Add a hover effect for the link */
+    text-decoration: underline; /* Optional: Show underline on hover if needed */
+}
+
+.property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Property Title */
+.property-title {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+/* Buttons Container */
+.property-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit Button */
+.property-btn-edit {
+    background-color: #195e8e;
+    color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.property-btn-edit:hover {
+    background-color: #0056b3;
+}
+
+/* Delete Button */
+.property-btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.property-btn-delete:hover {
+    background-color: #a71d2a;
+}
+
+/* Ensure Buttons Look Consistent */
+.property-btn-edit,
+.property-btn-delete {
+    font-weight: bold;
+    display: inline-block;
+}

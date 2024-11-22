@@ -26,12 +26,14 @@ class PropertyEditView(UpdateView):
     form_class = PropertyCreateForm
     template_name = 'properties/edit-property.html'
 
-    def get_success_url(self): #TODO make the redirect to property details
-        return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
+    def get_success_url(self):
+        return reverse_lazy('property-details', kwargs={'pk': self.object.pk})
 
 
 class PropertyDetailsView(DetailView):
-    pass
+    model = RealEstateProperty
+    template_name = 'properties/details-property.html'
+    context_object_name = 'property'
 
 
 class PropertyDeleteView(DeleteView):

@@ -17,6 +17,6 @@ class RealEstateProperty(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def calculate_price_per_sqm(self):
-        return f"{self.price / self.area}:.2f"
+        return f"{self.price / self.area:.2f}"
 
 

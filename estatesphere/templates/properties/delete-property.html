@@ -12,7 +12,7 @@
                 {% csrf_token %}
                 <button type="submit" class="btn confirm-btn">Yes, Delete</button>
             </form>
-            <a href="{% url 'profile-details' request.user.pk %}" class="btn cancel-btn">Cancel</a>
+            <a href="{% url 'property-details' realestateproperty.pk %}" class="btn cancel-btn">Cancel</a>
         </div>
     </div>
 </div>
