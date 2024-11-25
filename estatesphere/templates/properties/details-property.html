@@ -25,6 +25,15 @@
                 <span><strong>City:</strong> {{ property.city }}</span>
                 <span><strong>Address:</strong> {{ property.address }}</span>
                 <span><strong>Favorited by:</strong> {{ property.favourites.count }} people</span>
+                <span class="favorite-button">
+                    <a href="{% url 'favourite' property.pk %}">
+                        {% if has_fav %}
+                            <i class="fa-solid fa-star"></i> <!-- Filled Star if favorited -->
+                        {% else %}
+                            <i class="fa-regular fa-star"></i> <!-- Empty Star if not favorited -->
+                        {% endif %}
+                    </a>
+                </span>
             </div>
             <hr>
             {% if not user_has_review %}
@@ -45,7 +54,7 @@
                                 <p class="rating">Rating: {{ review.rating }} / 5</p>
                                 <p>{{ review.text }}</p>
                                 <p class="date">Published on: {{ review.date_time_of_publication }}</p>
-                            
+
                                 {% if review.user == request.user %}
                                     <div class="review-actions">
                                         <form method="post" action="{% url 'review-delete' review.pk %}">

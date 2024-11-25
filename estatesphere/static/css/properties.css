@@ -146,6 +146,7 @@
 
 .property-details-card .details {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .property-details-card .details span {
@@ -338,4 +339,28 @@
 
 .review-btn-delete:hover {
     background-color: #a71d2a;
+}
+
+/* Star Button Container (Favorited Star) */
+.favorite-button {
+    position: absolute; /* Absolute positioning to place the button at the bottom right */
+    bottom: 0px; /* Space from the bottom */
+    right: 20px; /* Space from the right */
+    font-size: 36px;
+    cursor: pointer;
+}
+
+/* Filled Star (for when property is favorited) */
+.favorite-button a i.fa-solid {
+    color: #ffd700; /* Gold color for filled star */
+}
+
+/* Empty Star (for when property is not favorited) */
+.favorite-button a i.fa-regular {
+    color: #696565; /* Gray color for empty star */
+}
+
+/* Hover effect on the star button */
+.favorite-button a i:hover {
+    transform: scale(1.3); /* Slightly larger zoom effect on hover */
 }

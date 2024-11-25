@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from estatesphere.common.forms import SearchForm, ReviewCreateForm
 from estatesphere.properties.models import RealEstateProperty
-from estatesphere.common.models import Review
+from estatesphere.common.models import Review, Favourite
 
 
 class HomePageView(ListView):
@@ -32,7 +32,15 @@ class HomePageView(ListView):
 
 
 def favourite_functionality(request, property_id):
-    pass
+    favourite_object = Favourite.objects.filter(estate_property_id=property_id, user=request.user).first()
+
+    if favourite_object:
+        favourite_object.delete()
+    else:
+        fav = Favourite(estate_property_id=property_id, user=request.user)
+        fav.save()
+
+    return redirect(request.META.get('HTTP_REFERER') + f'#{property_id}')
 
 
 class AddReviewView(CreateView):
