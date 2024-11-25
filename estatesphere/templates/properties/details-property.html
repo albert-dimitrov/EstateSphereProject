@@ -48,7 +48,10 @@
                             
                                 {% if review.user == request.user %}
                                     <div class="review-actions">
-                                        <a href="#" class="review-btn-delete">Delete</a>
+                                        <form method="post" action="{% url 'review-delete' review.pk %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="review-btn-delete">Delete</button>
+                                        </form>
                                     </div>
                                 {% endif %}
                             </a>

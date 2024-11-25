@@ -316,20 +316,24 @@
 }
 
 .review-actions {
-    margin-top: 10px;
     display: flex;
     gap: 10px;
+    margin-top: 10px;
 }
 
-
+/* Delete Button Styled as a Link */
 .review-btn-delete {
     background-color: #dc3545;
     color: white;
     padding: 5px 10px;
     font-size: 12px;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
     text-decoration: none;
-    transition: 0.3s ease;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    font-family: inherit; /* Match button font with surrounding text */
 }
 
 .review-btn-delete:hover {

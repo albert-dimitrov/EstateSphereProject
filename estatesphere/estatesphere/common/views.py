@@ -51,7 +51,10 @@ class AddReviewView(CreateView):
 
 
 class DeleteReviewView(DeleteView):
-    pass
+    model = Review
+
+    def get_success_url(self):
+        return reverse_lazy('property-details', kwargs={'pk': self.object.estate_property.pk})
 
 
 def about_us_page(request):
