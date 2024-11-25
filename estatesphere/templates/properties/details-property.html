@@ -27,17 +27,30 @@
                 <span><strong>Favorited by:</strong> {{ property.favourites.count }} people</span>
             </div>
             <hr>
+            {% if not user_has_review %}
+                <form method="post" action="{% url 'review-add' property.pk %}" class="review-form">
+                    {{ review_form }}
+                    {% csrf_token %}
+                    <button type="submit" class="review-btn">Submit Review</button>
+                </form>
+            {% endif %}
             <!-- Reviews Section -->
             <div class="reviews-section">
                 <h3>Reviews</h3>
-                
+
                 {% if property.reviews.exists %}
                     {% for review in property.reviews.all %}
                         <div class="review-card">
                             <a href="{% url 'profile-details' review.user.pk %}">
-                            <p class="rating">Rating: {{ review.rating }} / 5</p>
-                            <p>{{ review.text }}</p>
-                            <p class="date">Published on: {{ review.date_time_of_publication }}</p>
+                                <p class="rating">Rating: {{ review.rating }} / 5</p>
+                                <p>{{ review.text }}</p>
+                                <p class="date">Published on: {{ review.date_time_of_publication }}</p>
+                            
+                                {% if review.user == request.user %}
+                                    <div class="review-actions">
+                                        <a href="#" class="review-btn-delete">Delete</a>
+                                    </div>
+                                {% endif %}
                             </a>
                         </div>
                     {% endfor %}

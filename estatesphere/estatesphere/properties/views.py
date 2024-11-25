@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 
+from estatesphere.common.forms import ReviewCreateForm
 from estatesphere.properties.forms import PropertyCreateForm
 from estatesphere.properties.models import RealEstateProperty
 
@@ -34,6 +35,16 @@ class PropertyDetailsView(DetailView):
     model = RealEstateProperty
     template_name = 'properties/details-property.html'
     context_object_name = 'property'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        user_has_review = self.object.reviews.filter(user=self.request.user).exists()
+
+        context['review_form'] = ReviewCreateForm
+        context['user_has_review'] = user_has_review
+
+        return context
 
 
 class PropertyDeleteView(DeleteView):

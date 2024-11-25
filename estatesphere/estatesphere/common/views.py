@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-from estatesphere.common.forms import SearchForm
+from estatesphere.common.forms import SearchForm, ReviewCreateForm
 from estatesphere.properties.models import RealEstateProperty
+from estatesphere.common.models import Review
 
 
 class HomePageView(ListView):
@@ -34,11 +36,18 @@ def favourite_functionality(request, property_id):
 
 
 class AddReviewView(CreateView):
-    pass
+    model = Review
+    form_class = ReviewCreateForm
 
+    def form_valid(self, form):
+        property_id = self.kwargs.get('property_id')
+        real_estate_property = get_object_or_404(RealEstateProperty, id=property_id)
+        form.instance.user = self.request.user
+        form.instance.estate_property = real_estate_property
+        return super().form_valid(form)
 
-class EditReviewView(UpdateView):
-    pass
+    def get_success_url(self):
+        return reverse_lazy('property-details', kwargs={'pk': self.kwargs.get('property_id')})
 
 
 class DeleteReviewView(DeleteView):
