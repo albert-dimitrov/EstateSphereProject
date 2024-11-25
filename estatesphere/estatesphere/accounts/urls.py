@@ -11,5 +11,6 @@ urlpatterns = [
         path('edit/', views.ProfileEditView.as_view(), name='profile-edit'),
         path('delete/', views.ProfileDeleteView.as_view(), name='profile-delete'),
         path('my-properties/', views.ProfilePropertiesView.as_view(), name='profile-properties'),
+        path('favourites/', views.MyFavouriteProperties.as_view(), name='my-favourite')
     ]))
 ]

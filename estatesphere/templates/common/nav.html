@@ -17,7 +17,7 @@
                             <a class="nav-link" href="{% url 'profile-properties' request.user.pk %}">My Properties</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Favorites</a>
+                            <a class="nav-link" href="{% url 'my-favourite' request.user.pk %}">Favorites</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'property-add' %}">Add Property</a>

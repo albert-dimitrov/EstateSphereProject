@@ -101,4 +101,15 @@ class ProfilePropertiesView(ListView):
         return queryset
 
 
+class MyFavouriteProperties(ListView):
+    model = RealEstateProperty
+    template_name = 'accounts/profile-favourite-properties.html'
+    context_object_name = 'all_properties'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        queryset = queryset.filter(favourites__user=self.request.user)
+
+        return queryset
 
