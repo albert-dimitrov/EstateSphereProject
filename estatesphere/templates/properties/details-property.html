@@ -42,12 +42,15 @@
                         </a>
                     </div>
                 {% endif %}
+                
+                {% if property.images.all %}
+                    <div class="see-more-images-button">
+                        <a href="{% url 'image-details' property.pk %}" class="btn btn-see-more-images">
+                            See More Images
+                        </a>
+                    </div>
+                {% endif %}
             
-                <div class="see-more-images-button">
-                    <a href="#" class="btn btn-see-more-images">
-                        See More Images
-                    </a>
-                </div>
             </div>
             <hr>
             {% if not user_has_review %}

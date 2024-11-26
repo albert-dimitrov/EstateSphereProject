@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from estatesphere.images.models import Image
 from estatesphere.images.forms import MultiImageUploadForm
 from estatesphere.properties.models import RealEstateProperty
@@ -30,8 +30,10 @@ def add_images_view(request, property_id):
     return render(request, 'images/add-images.html', {'form': form, 'property': estate_property})
 
 
-class ImageDetailsView(ListView):
-    pass
+class ImageDetailsView(DetailView):
+    model = RealEstateProperty
+    template_name = 'images/property-images.html'
+    context_object_name = 'property'
 
 
 def image_delete(request, pk):
