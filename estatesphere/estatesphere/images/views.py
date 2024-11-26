@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import CreateView, ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView, DetailView, DeleteView
 from estatesphere.images.models import Image
 from estatesphere.images.forms import MultiImageUploadForm
 from estatesphere.properties.models import RealEstateProperty
@@ -36,5 +37,8 @@ class ImageDetailsView(DetailView):
     context_object_name = 'property'
 
 
-def image_delete(request, pk):
-    pass
+class DeleteImageView(DeleteView):
+    model = Image
+
+    def get_success_url(self):
+        return reverse_lazy('property-details', kwargs={'pk': self.object.estate_property.pk})

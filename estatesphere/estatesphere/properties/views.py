@@ -39,8 +39,8 @@ class PropertyDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        user_has_review = self.object.reviews.filter(user=self.request.user).exists()
-        user_has_fav = self.object.favourites.filter(user=self.request.user).exists()
+        user_has_review = self.object.reviews.filter(user__pk=self.request.user.pk).exists()
+        user_has_fav = self.object.favourites.filter(user__pk=self.request.user.pk).exists()
 
         context['review_form'] = ReviewCreateForm
         context['user_has_review'] = user_has_review
