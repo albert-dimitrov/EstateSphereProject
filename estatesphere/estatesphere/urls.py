@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('estatesphere.common.urls')),
     path('accounts/', include('estatesphere.accounts.urls')),
     path('properties/', include('estatesphere.properties.urls')),
-    path('images', include('estatesphere.images.urls')),
+    path('images/', include('estatesphere.images.urls')),
 ]
 
 if settings.DEBUG:

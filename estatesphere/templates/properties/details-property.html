@@ -28,12 +28,26 @@
                 <span class="favorite-button">
                     <a href="{% url 'favourite' property.pk %}">
                         {% if has_fav %}
-                            <i class="fa-solid fa-star"></i> <!-- Filled Star if favorited -->
+                            <i class="fa-solid fa-star"></i> 
                         {% else %}
-                            <i class="fa-regular fa-star"></i> <!-- Empty Star if not favorited -->
+                            <i class="fa-regular fa-star"></i> 
                         {% endif %}
                     </a>
                 </span>
+
+                {% if request.user == property.user %}
+                    <div class="add-images-button">
+                        <a href="{% url 'image-add' property.pk %}" class="btn btn-add-images">
+                            Add Images
+                        </a>
+                    </div>
+                {% endif %}
+            
+                <div class="see-more-images-button">
+                    <a href="#" class="btn btn-see-more-images">
+                        See More Images
+                    </a>
+                </div>
             </div>
             <hr>
             {% if not user_has_review %}
