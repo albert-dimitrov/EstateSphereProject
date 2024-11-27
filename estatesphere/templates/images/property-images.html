@@ -16,10 +16,12 @@
                     <div class="col-md-4 mb-4">
                         <div class="image-card">
                             <img src="{{ image.image.url }}" alt="Property Image" class="img-fluid rounded">
-                            <form method="post" action="{% url 'image-delete' image.pk %}" class="delete-image-form">
-                                {% csrf_token %}
-                                <button type="submit" class="delete-image-btn" title="Delete Image">&times;</button>
-                            </form>
+                            {% if request.user == image.user %}
+                                <form method="post" action="{% url 'image-delete' image.pk %}" class="delete-image-form">
+                                    {% csrf_token %}
+                                    <button type="submit" class="delete-image-btn" title="Delete Image">&times;</button>
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

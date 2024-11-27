@@ -53,7 +53,7 @@
             
             </div>
             <hr>
-            {% if not user_has_review %}
+            {% if not user_has_review and request.user.is_authenticated %}
                 <form method="post" action="{% url 'review-add' property.pk %}" class="review-form">
                     {{ review_form }}
                     {% csrf_token %}
