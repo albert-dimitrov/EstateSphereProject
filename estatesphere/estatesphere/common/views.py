@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -30,7 +32,7 @@ class HomePageView(ListView):
 
         return queryset
 
-
+@login_required
 def favourite_functionality(request, property_id):
     favourite_object = Favourite.objects.filter(estate_property_id=property_id, user=request.user).first()
 
@@ -43,7 +45,7 @@ def favourite_functionality(request, property_id):
     return redirect(request.META.get('HTTP_REFERER') + f'#{property_id}')
 
 
-class AddReviewView(CreateView):
+class AddReviewView(LoginRequiredMixin, CreateView):
     model = Review
     form_class = ReviewCreateForm
 
@@ -58,8 +60,12 @@ class AddReviewView(CreateView):
         return reverse_lazy('property-details', kwargs={'pk': self.kwargs.get('property_id')})
 
 
-class DeleteReviewView(DeleteView):
+class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review
+
+    def test_func(self):
+        review = get_object_or_404(Review, pk=self.kwargs['pk'])
+        return self.request.user == review.user
 
     def get_success_url(self):
         return reverse_lazy('property-details', kwargs={'pk': self.object.estate_property.pk})

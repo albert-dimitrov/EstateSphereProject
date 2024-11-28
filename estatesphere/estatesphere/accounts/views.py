@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth import login, logout
@@ -30,16 +31,20 @@ class UserLoginView(LoginView):
     template_name = 'accounts/login-page.html'
 
 
-class ProfileEditView(UpdateView):
+class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Profile
     form_class = ProfileEditForm
     template_name = 'accounts/profile-edit.html'
+
+    def test_func(self):
+        profile = get_object_or_404(Profile, pk=self.kwargs['pk'])
+        return self.request.user == profile.user
 
     def get_success_url(self):
         return reverse_lazy('profile-details', kwargs={'pk': self.object.pk})
 
 
-class ProfileDetailsView(DetailView):
+class ProfileDetailsView(LoginRequiredMixin, DetailView):
     model = UserModel
     template_name = 'accounts/profile-details.html'
 
@@ -70,10 +75,14 @@ class ProfileDetailsView(DetailView):
         return context
 
 
-class ProfileDeleteView(DeleteView):
+class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Profile
     template_name = 'accounts/profile-delete.html'
     success_url = reverse_lazy('login')
+
+    def test_func(self):
+        profile = get_object_or_404(Profile, pk=self.kwargs['pk'])
+        return self.request.user == profile.user
 
     def form_valid(self, form):
 
@@ -88,7 +97,7 @@ class ProfileDeleteView(DeleteView):
         return response
 
 
-class ProfilePropertiesView(ListView):
+class ProfilePropertiesView(LoginRequiredMixin, ListView):
     model = RealEstateProperty
     template_name = 'accounts/profile-my-properties.html'
     context_object_name = 'all_properties'
@@ -101,7 +110,7 @@ class ProfilePropertiesView(ListView):
         return queryset
 
 
-class MyFavouriteProperties(ListView):
+class MyFavouriteProperties(LoginRequiredMixin, ListView):
     model = RealEstateProperty
     template_name = 'accounts/profile-favourite-properties.html'
     context_object_name = 'all_properties'
