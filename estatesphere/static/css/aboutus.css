@@ -1,0 +1,136 @@
+/* General Styles */
+.about-us-wrapper {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #195E8E;
+    padding: 50px 20px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Mission Section */
+.mission-section {
+    margin: 40px auto;
+}
+
+.mission-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.mission-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Values Section */
+.values-section {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.values-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.values-section .fa-solid {
+    margin-bottom: 10px;
+    color: #195E8E;
+}
+
+.values-section h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.values-section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Team Section */
+.team-section {
+    margin: 40px 0;
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-section h4 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.team-section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Contact Us Section */
+.contact-us-section {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contact-us-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-us-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.contact-info .row div {
+    margin-bottom: 20px;
+}
+
+.contact-info i {
+    color: #195E8E;
+    margin-bottom: 10px;
+}
+
+.contact-info h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #666;
+}

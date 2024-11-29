@@ -54,7 +54,7 @@ class PropertyDetailsView(DetailView):
         return context
 
 
-class PropertyDeleteView(LoginRequiredMixin, UserPassesTestMixin,DeleteView):
+class PropertyDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = RealEstateProperty
     template_name = 'properties/delete-property.html'
 
@@ -64,5 +64,4 @@ class PropertyDeleteView(LoginRequiredMixin, UserPassesTestMixin,DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
-
 

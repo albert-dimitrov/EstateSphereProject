@@ -72,6 +72,6 @@ class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about_us_page(request):
-    pass
+    return render(request, 'common/about-us.html')
 
 

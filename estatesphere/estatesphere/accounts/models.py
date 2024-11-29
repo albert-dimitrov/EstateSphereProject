@@ -32,3 +32,5 @@ class Profile(models.Model):
     def get_full_name(self):
         return f"{self.first_name or ''} {self.last_name or ''}".strip() or 'Anonymous'
 
+    def str(self):
+        return self.get_full_name() if self.get_full_name() != 'Anonymous' else self.user.email
