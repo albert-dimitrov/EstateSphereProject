@@ -19,4 +19,6 @@ class RealEstateProperty(models.Model):
     def calculate_price_per_sqm(self):
         return f"{self.price / self.area:.2f}"
 
+    def __str__(self):
+        return self.title
 
