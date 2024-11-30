@@ -130,8 +130,8 @@
     border-radius: 20px; /* Prominent rounded corners */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
     width: 100%;
-    max-width: 800px; /* Increased width */
-    height: 900px; /* Default for responsiveness */ /* Enforced height for taller card */
+    max-width: 600px; /* Increased width */
+    height: 100%; /* Default for responsiveness */ /* Enforced height for taller card */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out content vertically */
@@ -157,7 +157,7 @@
 .delete-card p {
     font-size: 20px; /* Larger paragraph text */
     color: #666;
-    margin-bottom: 30px; /* Space between text and buttons */
+    margin-bottom: 0px; /* Space between text and buttons */
 }
 .delete-buttons {
     display: flex;

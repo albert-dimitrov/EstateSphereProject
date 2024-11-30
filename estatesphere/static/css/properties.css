@@ -337,6 +337,15 @@
     font-family: inherit; /* Match button font with surrounding text */
 }
 
+.delete-prop-gif {
+    max-width: 100%; /* Adjust to take more space */
+    height: auto;
+    max-height: 75%;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-left: 0px;/* Space below GIF */
+}
+
 .review-btn-delete:hover {
     background-color: #a71d2a;
 }

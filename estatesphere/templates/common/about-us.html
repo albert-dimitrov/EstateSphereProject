@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load static %}
 
 
 {% block content %}
@@ -43,17 +44,17 @@
         <h2>Meet Our Team</h2>
         <div class="row">
             <div class="col-md-4">
-                <img src="#" alt="Team Member" class="team-photo rounded-circle">
+                <img src="{% static 'images/person1.jpg' %}" alt="Team Member" class="team-photo rounded-circle">
                 <h4>Albert Dimitrov</h4>
                 <p>CEO & Founder</p>
             </div>
             <div class="col-md-4">
-                <img src="#" alt="Team Member" class="team-photo rounded-circle">
+                <img src="{% static 'images/person2.jpg' %}" alt="Team Member" class="team-photo rounded-circle">
                 <h4>Alberta Dimitrova</h4>
                 <p>Marketing Manager</p>
             </div>
             <div class="col-md-4">
-                <img src="#" alt="Team Member" class="team-photo rounded-circle">
+                <img src="{% static 'images/person3.jpg' %}" alt="Team Member" class="team-photo rounded-circle">
                 <h4>Dimitur Albertov</h4>
                 <p>Head of Technology</p>
             </div>
