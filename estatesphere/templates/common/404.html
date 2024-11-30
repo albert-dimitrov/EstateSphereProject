@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - EstateSphere</title>
+    <link rel="stylesheet" href="{% static 'css/404.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <p class="message">Oops! The page you're looking for doesn't exist.</p>
+        <div class="icon-container">
+            <i class="fa-solid fa-house-circle-xmark fa-5x"></i>
+        </div>
+        <p class="suggestion">Go back to our <a href="{% url 'home' %}">homepage</a> or contact <a href="{% url 'about' %}">support</a>.</p>
+    </div>
+</body>
+</html>
