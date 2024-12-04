@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "estatesphere.accounts.apps.AccountsConfig",
     "estatesphere.common.apps.CommonConfig",
     "estatesphere.properties.apps.PropertiesConfig",
-    "estatesphere.images.apps.ImagesConfig"
+    "estatesphere.images.apps.ImagesConfig",
+    'estatesphere.contacts.apps.ContactsConfig'
 ]
 
 MIDDLEWARE = [
