@@ -39,6 +39,4 @@ class AddMassageView(CreateView):
 
 
 
-class MassageDeleteView(DeleteView):
-    pass
 
