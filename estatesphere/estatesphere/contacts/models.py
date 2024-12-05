@@ -6,7 +6,7 @@ UserModel = get_user_model()
 
 
 class ChatRoom(models.Model):
-    user = models.OneToOneField(UserModel, on_delete=models.CASCADE)
+    user = models.OneToOneField(UserModel, on_delete=models.CASCADE, primary_key=True)
     created_at = models.DateField(auto_now_add=True)
     open = models.BooleanField(default=True)
 

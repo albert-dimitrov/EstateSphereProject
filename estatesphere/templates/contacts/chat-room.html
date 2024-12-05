@@ -1,0 +1,44 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+<title>ContactSupport - EstateSphere</title>
+{% endblock %}
+
+{% block content %}
+<div class="chatroom-container">
+    <!-- Chat Header -->
+    <div class="chat-header">
+        <h2>Support</h2>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area">
+        {% for m in object.massages.all %}
+        {% if m.sender.pk == request.user.pk %}
+            <div class="message sent">
+                <p class="message-text">{{ m.text }}</p>
+                <span class="message-time">{{ m.created_at|date:"H:i A" }}</span>
+            </div>
+        {% else %}
+            <div class="message received">
+                <p class="message-text">{{ m.text }}</p>
+                <span class="message-time">{{ m.created_at|date:"H:i A" }}</span>
+            </div>
+        {% endif %}
+        {% empty %}
+            <div class="no-messages">
+                <p>No messages yet. Start the conversation below!</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Input Box -->
+    <div class="chat-input-container">
+        <form method="post" action="{% url 'massage-add' chatroom.pk %}">
+        {% csrf_token %}
+        {{ massage_form.text }}
+        <button type="submit">Send</button>
+    </form>
+    </div>
+</div>
+{% endblock %}

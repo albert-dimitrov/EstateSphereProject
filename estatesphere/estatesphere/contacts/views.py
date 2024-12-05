@@ -1,21 +1,42 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, DeleteView, UpdateView
+
+from estatesphere.contacts.forms import MassageAddForm
+from estatesphere.contacts.models import ChatRoom, Massages
 
 
 class ChatRoomDetailView(DetailView):
-    pass
+    model = ChatRoom
+    template_name = 'contacts/chat-room.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['massage_form'] = MassageAddForm
+
+        return context
 
 
 class ChatRoomDeleteView(DeleteView):
     pass
 
 
-class ChatRoomEditView(UpdateView):
-    pass
-
-
 class AddMassageView(CreateView):
-    pass
+    model = Massages
+    form_class = MassageAddForm
+
+    def form_valid(self, form):
+        chat_room_id = self.kwargs.get('chat_room_id')
+        chat_room = get_object_or_404(ChatRoom, pk=chat_room_id)
+        form.instance.sender = self.request.user
+        form.instance.chatroom = chat_room
+
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('chatroom-detail', kwargs={'pk': self.kwargs.get('chat_room_id')})
+
 
 
 class MassageDeleteView(DeleteView):
