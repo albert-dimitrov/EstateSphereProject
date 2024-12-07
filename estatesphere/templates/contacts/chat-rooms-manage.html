@@ -1,0 +1,33 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+    <title>Estate Sphere - ChatRooms Manage</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="chatroom-list-container">
+        <h1 class="chatroom-list-header">Chat Rooms</h1>
+        <div class="chatroom-list">
+            {% for chatroom in chatrooms %}
+                <div class="chatroom-card">
+                    <div class="chatroom-details">
+                        <h2>{{ chatroom.user }}</h2>
+                        <p>Created At: {{ chatroom.created_at|date:"F j, Y" }}</p>
+                        {% if chatroom.open %}
+                            <p>Status: Open</p>
+                        {% else %}
+                            <p>Status: Closed</p>
+                        {% endif %}
+                    </div>
+                    <div class="chatroom-actions">
+                        <a href="{% url 'chatroom-detail' chatroom.pk %}" class="btn-view-chatroom">View</a>
+                        <a href="{% url 'chatroom-delete' chatroom.pk %}" class="btn-delete-chatroom">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No chatrooms available.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

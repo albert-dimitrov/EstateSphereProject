@@ -7,4 +7,5 @@ urlpatterns = [
         path('delete/', views.ChatRoomDeleteView.as_view(), name='chatroom-delete'),
     ])),
     path('massage/<int:chat_room_id>/add/', views.AddMassageView.as_view(), name='massage-add'),
+    path('chatrooms/support/manage', views.ChatRoomsListView.as_view(), name='chatrooms-manage'),
 ]

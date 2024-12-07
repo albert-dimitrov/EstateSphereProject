@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, DeleteView, UpdateView
+from django.views.generic import CreateView, DetailView, DeleteView, ListView
 
 from estatesphere.contacts.forms import MassageAddForm
 from estatesphere.contacts.models import ChatRoom, Massages
@@ -27,7 +27,7 @@ class ChatRoomDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 class ChatRoomDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = ChatRoom
     template_name = 'contacts/chatroom-delete.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('chatrooms-manage')
 
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.groups.filter(name='Moderation Group').exists()
@@ -48,4 +48,13 @@ class AddMassageView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy('chatroom-detail', kwargs={'pk': self.kwargs.get('chat_room_id')})
+
+
+class ChatRoomsListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = ChatRoom
+    template_name = 'contacts/chat-rooms-manage.html'
+    context_object_name = 'chatrooms'
+
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.groups.filter(name='Moderation Group').exists()
 

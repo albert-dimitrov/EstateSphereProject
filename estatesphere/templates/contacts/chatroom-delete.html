@@ -11,7 +11,7 @@
             <h2>Are you sure?</h2>
             <p>You are about to delete this chatroom. This action cannot be undone.</p>
             <div class="button-group-delete-chat">
-                <a href="{% url 'home' %}" class="btn-cancel-chat">Cancel</a>
+                <a href="{% url 'chatrooms-manage' %}" class="btn-cancel-chat">Cancel</a>
                 <form method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn-delete-chat">Delete</button>

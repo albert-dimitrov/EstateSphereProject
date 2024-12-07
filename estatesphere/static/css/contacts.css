@@ -202,3 +202,88 @@
 .btn-delete-chat:hover {
     background-color: #c0392b;
 }
+
+.chatroom-list-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatroom-list-header {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.chatroom-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chatroom-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EEEAE6;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chatroom-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.chatroom-details h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #195E8E;
+}
+
+.chatroom-details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.chatroom-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-view-chatroom,
+.btn-delete-chatroom {
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-view-chatroom {
+    background-color: #195E8E;
+    color: white;
+}
+
+.btn-view-chatroom:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete-chatroom {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-delete-chatroom:hover {
+    background-color: #c0392b;
+}
+
