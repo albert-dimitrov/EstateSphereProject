@@ -24,8 +24,14 @@ class ChatRoomDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return context
 
 
-class ChatRoomDeleteView(DeleteView):
-    pass
+class ChatRoomDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = ChatRoom
+    template_name = 'contacts/chatroom-delete.html'
+    success_url = reverse_lazy('home')
+
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.groups.filter(name='Moderation Group').exists()
+
 
 
 class AddMassageView(LoginRequiredMixin, CreateView):

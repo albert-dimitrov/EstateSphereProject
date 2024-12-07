@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
 
-</body>
-</html>
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="delete-chatroom-container">
+        <div class="delete-chatroom-card">
+            <h2>Are you sure?</h2>
+            <p>You are about to delete this chatroom. This action cannot be undone.</p>
+            <div class="button-group-delete-chat">
+                <a href="{% url 'home' %}" class="btn-cancel-chat">Cancel</a>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-delete-chat">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
