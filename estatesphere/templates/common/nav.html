@@ -1,7 +1,11 @@
+{% load static %}
 {% load group_check_filter %}
 
 <div class="container">
-    <h1 class="text-center">EstateSphere</h1>
+    <h1 class="text-center d-flex align-items-center justify-content-center">
+        <a href="{% url 'home' %}"><img src="{% static 'images/small 300x300.png' %}" alt="Logo" class="me-2" style="height: 50px;"></a>
+        EstateSphere
+    </h1>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Home</a>
