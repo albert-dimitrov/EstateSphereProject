@@ -29,6 +29,7 @@ This is a web-based real estate management system built using the Django Framewo
 - Data Validation & Exception Handling to prevent crashes.
 - Responsive Design.
 - Authentication System: Register/Login/Logout functionality.
+- Support contact between staff and users through massages.
 
 ---
 
@@ -47,6 +48,8 @@ Follow these steps to set up the project locally:
 - Python (version 3.8 or higher)
 - PostgreSQL installed and configured
 - Virtual environment (optional but recommended)
+- FOR FULL APLICATION WORK CREATE GROUP THAT IS CALLED "Moderation Group" AND GIVE THEM CRUD OPERATION ACCESS!!!
+- HAVE ADMIN USER, STAFF USER THAT S IN "Moderation Group" and one normal user for full experience
 
 ### **Steps to Install**
 1. Clone the repository
